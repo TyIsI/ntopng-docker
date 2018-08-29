@@ -1,11 +1,11 @@
-FROM ubuntu:14.04
+FROM ubuntu:18.04
 MAINTAINER Luca Deri <deri@ntop.org>
 
 RUN apt-get update
-RUN apt-get -y -q install curl
-RUN curl -s --remote-name http://packages.ntop.org/apt/14.04/all/apt-ntop.deb
-RUN sudo dpkg -i apt-ntop.deb
-RUN rm -rf apt-ntop.deb
+RUN apt-get -y -q install wget
+RUN wget http://apt-stable.ntop.org/18.04/all/apt-ntop-stable.deb
+RUN dpkg -i apt-ntop-stable.deb
+RUN rm -rf apt-ntop-stable.deb
 
 RUN apt-get update
 RUN apt-get -y -q install ntopng redis-server libpcap0.8 libmysqlclient18
